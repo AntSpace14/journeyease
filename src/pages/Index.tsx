@@ -102,13 +102,7 @@ const Index = () => {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-12" />
               </div>
             </div>
-            <div className="lg:w-1/2 flex justify-center">
-              <img 
-                src="https://cdn.pixabay.com/photo/2021/01/09/01/06/mobile-phone-5901591_1280.png" 
-                alt="Mobile App" 
-                className="max-w-full h-auto md:max-w-md"
-              />
-            </div>
+            
           </div>
         </div>
       </section>
