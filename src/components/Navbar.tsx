@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, User, HelpCircle, Briefcase, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Menu, X, ChevronDown, User, HelpCircle, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -16,37 +17,27 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-2xl font-bold text-travel-blue">JourneyEase</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-travel-blue">
+              <Link to="/flights" className="flex items-center text-gray-700 hover:text-travel-blue">
                 <span>Flights</span>
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-4 w-48 z-10">
-                <a href="#" className="block py-2 text-gray-700 hover:text-travel-blue">Domestic Flights</a>
-                <a href="#" className="block py-2 text-gray-700 hover:text-travel-blue">International Flights</a>
-                <a href="#" className="block py-2 text-gray-700 hover:text-travel-blue">Check Flight Status</a>
-              </div>
+              </Link>
             </div>
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-travel-blue">
+              <Link to="/hotels" className="flex items-center text-gray-700 hover:text-travel-blue">
                 <span>Hotels</span>
                 <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-4 w-48 z-10">
-                <a href="#" className="block py-2 text-gray-700 hover:text-travel-blue">Domestic Hotels</a>
-                <a href="#" className="block py-2 text-gray-700 hover:text-travel-blue">International Hotels</a>
-                <a href="#" className="block py-2 text-gray-700 hover:text-travel-blue">Holiday Packages</a>
-              </div>
+              </Link>
             </div>
-            <a href="#" className="text-gray-700 hover:text-travel-blue">Holiday Packages</a>
-            <a href="#" className="text-gray-700 hover:text-travel-blue">Offers</a>
+            <Link to="/holidays" className="text-gray-700 hover:text-travel-blue">Holiday Packages</Link>
+            <Link to="/offers" className="text-gray-700 hover:text-travel-blue">Offers</Link>
           </div>
 
           {/* Login/Profile Button */}
@@ -80,10 +71,10 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4">
             <div className="flex flex-col space-y-3 py-3">
-              <a href="#" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Flights</a>
-              <a href="#" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Hotels</a>
-              <a href="#" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Holiday Packages</a>
-              <a href="#" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Offers</a>
+              <Link to="/flights" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Flights</Link>
+              <Link to="/hotels" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Hotels</Link>
+              <Link to="/holidays" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Holiday Packages</Link>
+              <Link to="/offers" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Offers</Link>
               <a href="#" className="text-gray-700 hover:text-travel-blue py-2 border-b border-gray-200">Support</a>
               <Button className="bg-travel-blue hover:bg-travel-dark-blue text-white w-full">
                 <User className="mr-2 h-4 w-4" />

@@ -1,16 +1,36 @@
-
 import React, { useState } from 'react';
 import { Calendar, MapPin, Users, Search, Plane, Hotel, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
+import { useNavigate } from 'react-router-dom';
 
-const SearchForm = () => {
-  const [activeTab, setActiveTab] = useState('flights');
+interface SearchFormProps {
+  defaultTab?: 'flights' | 'hotels' | 'holidays';
+}
+
+const SearchForm: React.FC<SearchFormProps> = ({ defaultTab = 'flights' }) => {
+  const [activeTab, setActiveTab] = useState(defaultTab);
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    // For now, just navigate to the respective pages
+    switch (activeTab) {
+      case 'flights':
+        navigate('/flights');
+        break;
+      case 'hotels':
+        navigate('/hotels');
+        break;
+      case 'holidays':
+        navigate('/holidays');
+        break;
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 mx-auto -mt-16 relative z-10 max-w-5xl">
-      <Tabs defaultValue="flights" className="w-full" onValueChange={setActiveTab}>
+      <Tabs defaultValue={defaultTab} className="w-full" onValueChange={(value: any) => setActiveTab(value)}>
         <TabsList className="grid grid-cols-3 mb-6">
           <TabsTrigger value="flights" className="flex items-center justify-center">
             <Plane className="mr-2 h-4 w-4" />
@@ -96,7 +116,10 @@ const SearchForm = () => {
             </div>
           </div>
 
-          <Button className="w-full md:w-auto bg-travel-orange hover:bg-travel-light-orange text-white px-10 py-6 rounded-md font-semibold text-lg">
+          <Button 
+            onClick={handleSearch}
+            className="w-full md:w-auto bg-travel-orange hover:bg-travel-light-orange text-white px-10 py-6 rounded-md font-semibold text-lg"
+          >
             <Search className="mr-2 h-5 w-5" />
             Search
           </Button>
@@ -140,7 +163,10 @@ const SearchForm = () => {
             </div>
           </div>
 
-          <Button className="w-full md:w-auto bg-travel-orange hover:bg-travel-light-orange text-white px-10 py-6 rounded-md font-semibold text-lg">
+          <Button 
+            onClick={handleSearch}
+            className="w-full md:w-auto bg-travel-orange hover:bg-travel-light-orange text-white px-10 py-6 rounded-md font-semibold text-lg"
+          >
             <Search className="mr-2 h-5 w-5" />
             Search
           </Button>
@@ -182,7 +208,10 @@ const SearchForm = () => {
             </div>
           </div>
 
-          <Button className="w-full md:w-auto bg-travel-orange hover:bg-travel-light-orange text-white px-10 py-6 rounded-md font-semibold text-lg">
+          <Button 
+            onClick={handleSearch}
+            className="w-full md:w-auto bg-travel-orange hover:bg-travel-light-orange text-white px-10 py-6 rounded-md font-semibold text-lg"
+          >
             <Search className="mr-2 h-5 w-5" />
             Search
           </Button>

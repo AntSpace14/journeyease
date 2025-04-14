@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 type DestinationProps = {
   name: string;
@@ -37,6 +37,12 @@ const destinations: DestinationProps[] = [
 ];
 
 const DestinationCard: React.FC<DestinationProps> = ({ name, image, price, category }) => {
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    navigate('/holidays');
+  };
+
   return (
     <div className="group relative rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
       <div className="h-64 overflow-hidden">
@@ -61,7 +67,10 @@ const DestinationCard: React.FC<DestinationProps> = ({ name, image, price, categ
         </div>
       </div>
       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-        <button className="bg-travel-blue text-white px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center">
+        <button 
+          onClick={handleExplore}
+          className="bg-travel-blue text-white px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex items-center"
+        >
           Explore Now <ChevronRight className="ml-1 h-4 w-4" />
         </button>
       </div>
