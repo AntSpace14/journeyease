@@ -37,7 +37,7 @@ const Navbar = () => {
               </Link>
             </div>
             <Link to="/holidays" className="text-gray-700 hover:text-travel-blue">Holiday Packages</Link>
-            <Link to="/offers" className="text-gray-700 hover:text-travel-blue">Offers</Link>
+           
           </div>
 
           {/* Login/Profile Button */}
