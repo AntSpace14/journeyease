@@ -1,4 +1,4 @@
-**Website URL**: journeyease.lovable.app
+**Website URL**: https://journeyease.lovable.app/
 **Project URL**: https://lovable.dev/projects/6f7d3f06-c8b6-4c7b-94b3-edd4cdaa099a
 
 ## Description
